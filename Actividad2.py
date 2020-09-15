@@ -52,6 +52,41 @@ def move():
     update()
     ontimer(move, 100)
 
+    #Hacer que la comida se mueve a cada paso de la serpiente
+    #Se define una variable con rango al azar de 4 y asignamos un valor de 1 a otra variable para que entre a un while.
+    var=randrange(4)
+    verify=1
+    #Ciclo while que mueve a la comida una posición alrededor aleatoriamente
+    while (verify == 1):
+        #Condición if para verificar que la variable esté en rango y asignar otro valor al azar
+        if (var == 0):
+            if (food.x <= 14*10):
+                food.x=food.x+10
+                verify=0
+            else:
+                var=randrange(4)
+        #Condición if para verificar que la variable esté en rango y asignar otro valor al azar
+        if (var == 1):
+            if (food.y <= 14*10):
+                food.y=food.y+10
+                verify=0
+            else:
+                var=randrange(4)
+        #Condición if para verificar que la variable esté en rango y asignar otro valor al azar
+        if (var == 2):
+            if (food.x >= -14*10):
+                food.x=food.x-10
+                verify=0
+            else:
+                var=randrange(4)
+        #Condición if para verificar que la variable esté en rango y asignar otro valor al azar
+        if (var == 3):
+            if (food.y >= -14*10):
+                food.y=food.y-10
+                verify=0
+            else:
+                var=randrange(4)
+
 #Función que escoge dos colores al azar, uno para la comida y otro para la víbora, de una lista de 5 colores.
 def coloresrandom():
     colorlist = ["blue", "black", "green", "purple", "orange"]  #Lista de 5 colores diferentes
