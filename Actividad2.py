@@ -1,3 +1,12 @@
+#TC001S.1 Actividad 2 Juego de la Víbora
+"""Videojuego de la víbora con dos actualuzaciones: 
+    * La comida puede moverse al azar un paso a la vez y no debe de salirse de la ventana
+    * Cada vez que se corra el juego, la víbora y la comida tienen colores diferentes entre sí, 
+      pero al azar, de una serie de 5 diferentes colores, excepto el rojo """
+
+#Dacia Martínez Díaz A01733799
+#Fernando Aguilar Acosta A00827677
+
 from turtle import *
 from random import randrange
 from freegames import square, vector
@@ -47,6 +56,7 @@ setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
 listen()
+#Comandos para que la víbora cambie de dirección
 onkey(lambda: change(10, 0), 'Right')
 onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
