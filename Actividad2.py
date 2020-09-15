@@ -8,7 +8,7 @@
 #Fernando Aguilar Acosta A00827677
 
 from turtle import *
-from random import randrange
+from random import randrange, shuffle
 from freegames import square, vector
 
 food = vector(0, 0)
@@ -46,14 +46,23 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, bodycolor)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, foodcolor)
     update()
     ontimer(move, 100)
 
+#Función que escoge dos colores al azar, uno para la comida y otro para la víbora, de una lista de 5 colores.
+def coloresrandom():
+    colorlist = ["blue", "black", "green", "purple", "orange"]  #Lista de 5 colores diferentes
+    shuffle(colorlist)  #Revuelve los elementos de la lista de colores en un orden al azar
+    global bodycolor, foodcolor
+    bodycolor = colorlist[0]  #Escoge el primer elemento de la nueva lista desordenada
+    foodcolor = colorlist[1]  #Escoge el segundo elemento de la nueva lista desordenada
+
 setup(420, 420, 370, 0)
 hideturtle()
+coloresrandom()
 tracer(False)
 listen()
 #Comandos para que la víbora cambie de dirección
